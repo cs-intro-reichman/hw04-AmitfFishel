@@ -1,19 +1,19 @@
 public class ArrayOps {
     public static void main(String[] args) {
-     /*    int[] arr  = {2, 8, 3, 7, 8} ;
+       int[] arr  = {0,1,2,3,4,6} ;
         int[] test = {1, 2, 2, 1, 3, 4};
-        System.out.println(findMissingInt(arr));
-        System.out.println(secondMaxValue(arr));
-        System.err.println(containsTheSameElements(arr, test));
-        System.err.println(isSorted(arr)); */
+       // System.out.println(findMissingInt(arr));
+       // System.out.println(secondMaxValue(arr));
+       // System.err.println(containsTheSameElements(arr, test));
+       // System.err.println(isSorted(arr)); 
 
         
     }
     
     public static int findMissingInt (int [] array) {
         boolean exist = false;
-        for (int j = 0; j < array.length; j++) {
-            for (int i = 0; i <= array.length; i++) {
+        for (int j = 0; j <= array.length; j++) {
+            for (int i = 0; i < array.length; i++) {
                 if((array[i]) == j) exist=true; 
                 if(exist==false && i==array.length-1) return j;
                 }
