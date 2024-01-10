@@ -1,11 +1,11 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int[] arr  = {1, 2, 3, 4, 1, 5} ;
+     /*    int[] arr  = {2, 8, 3, 7, 8} ;
         int[] test = {1, 2, 2, 1, 3, 4};
         System.out.println(findMissingInt(arr));
         System.out.println(secondMaxValue(arr));
         System.err.println(containsTheSameElements(arr, test));
-        System.err.println(isSorted(arr));
+        System.err.println(isSorted(arr)); */
 
         
     }
@@ -17,7 +17,7 @@ public class ArrayOps {
                 if((array[i]) == j) exist=true; 
                 if(exist==false && i==array.length-1) return j;
                 }
-                exist=false;
+            exist=false;
             }
            return -1; 
         }
@@ -27,7 +27,7 @@ public class ArrayOps {
          int max = array [0];
          int max2 = array [0];
          for (int i = 1; i < array.length; i++) {
-               if (array[i] > max) {
+               if (array[i] >= max) {
                max2 = max;
                max = array[i];
                 

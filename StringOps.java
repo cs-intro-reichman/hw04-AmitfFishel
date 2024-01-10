@@ -22,8 +22,9 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String test = "Hello World";
-        System.err.println(capVowelsLowRest(test));
+        // String test = "Hello World";
+       // String test2 = "One two tHRee world";
+       // System.err.println(capVowelsLowRest(test2));
      //   System.err.println(camelCase(test));
         
     }
