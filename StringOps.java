@@ -30,20 +30,24 @@ public class StringOps {
     }
 
     public static String capVowelsLowRest (String string) {
-        String isSolution = " ";
+        String isSolution = "";
 
         for (int j = 0; j < string.length(); j++) {
             char currentChar = string.charAt(j);
 
-            if(currentChar=='a' || currentChar=='i' || currentChar=='e' || 
-            currentChar=='o' || currentChar=='u') {
+            if(currentChar=='a' || currentChar=='i' || currentChar=='e' ||
+             currentChar=='o' || currentChar=='u'){
                 isSolution += (char)(currentChar - 32);
-       
+            } else if(currentChar=='A' || currentChar=='I' || currentChar=='E' ||
+             currentChar=='O' || currentChar=='U')  {
+                isSolution += currentChar;
+
+
             } else if (currentChar >= 'A' && currentChar <= 'Z') {
             isSolution +=  (char)(currentChar + 32);  
  
         } else {
-            isSolution += currentChar; // בעיה האותיות מהמיוחדות הראשונות מדפיס לי גם גדול וגם קטן.
+            isSolution += currentChar; 
 
        }
 
