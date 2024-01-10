@@ -22,21 +22,106 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
+        String test = "Hello World";
+        System.err.println(capVowelsLowRest(test));
+     //   System.err.println(camelCase(test));
         
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
-    }
+        String isSolution = " ";
+
+        for (int j = 0; j < string.length(); j++) {
+            char currentChar = string.charAt(j);
+
+            if(currentChar=='a' || currentChar=='i' || currentChar=='e' || 
+            currentChar=='o' || currentChar=='u') {
+                isSolution += (char)(currentChar - 32);
+       
+            } else if (currentChar >= 'A' && currentChar <= 'Z') {
+            isSolution +=  (char)(currentChar + 32);  
+ 
+        } else {
+            isSolution += currentChar; // בעיה האותיות מהמיוחדות הראשונות מדפיס לי גם גדול וגם קטן.
+
+       }
+
+   }
+        return isSolution;
+
+ }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+       String isSolution = " ";
+       int indexOfSpace = string.indexOf(' ');
+
+       if(indexOfSpace == -1) {
+       for (int i = 0; i < string.length()-1; i++) {
+          char currentChar = string.charAt(i);
+
+         if (currentChar >= 'A' && currentChar <= 'Z') {
+            isSolution +=  (char)(currentChar + 32); 
+         } else { 
+            isSolution += currentChar; 
+         }
+
+        }
+
+    } else{ 
+
+            for (int i = 0; i < indexOfSpace; i++) {
+             char currentChar = string.charAt(i);
+
+         if (currentChar >= 'A' && currentChar <= 'Z') {
+            isSolution +=  (char)(currentChar + 32); 
+         } else { 
+            isSolution += currentChar; 
+         }
+
+        }
+
+        for (int j = 0; j < string.length()-1; j++) {
+          char currentChar = string.charAt(j);
+
+            if(currentChar>0 && string.charAt(currentChar-1) == ' ' && 
+            currentChar >= 'a' && currentChar <= 'z'){
+
+                isSolution += (char)(currentChar -32);
+
+        } else if (currentChar != ' '){
+             isSolution+= currentChar;
+        }
+
+        }
+
+                
+            }
+
+        return isSolution;
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int count = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if(string.charAt(i) == chr){
+                count++;
+            }
+        }
+
+        int[]isSolution = new int [count];
+        int index = 0;
+        for (int i = 0; i < string.length(); i++) {
+           if(string.charAt(i) == chr){
+            isSolution[index] = i;
+            index++;
+           }
+        }
+
+        return isSolution ;
+
+            
+        }
+
+
     }
-}
+
