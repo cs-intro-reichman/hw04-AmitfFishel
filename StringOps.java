@@ -57,53 +57,52 @@ public class StringOps {
  }
 
     public static String camelCase (String string) {
-       String isSolution = " ";
-       int indexOfSpace = string.indexOf(' ');
-
-       if(indexOfSpace == -1) {
-       for (int i = 0; i < string.length()-1; i++) {
-          char currentChar = string.charAt(i);
-
-         if (currentChar >= 'A' && currentChar <= 'Z') {
-            isSolution +=  (char)(currentChar + 32); 
-         } else { 
-            isSolution += currentChar; 
-         }
-
-        }
-
-    } else{ 
-
-            for (int i = 0; i < indexOfSpace; i++) {
-             char currentChar = string.charAt(i);
-
-         if (currentChar >= 'A' && currentChar <= 'Z') {
-            isSolution +=  (char)(currentChar + 32); 
-         } else { 
-            isSolution += currentChar; 
-         }
-
-        }
-
-        for (int j = 0; j < string.length()-1; j++) {
-          char currentChar = string.charAt(j);
-
-            if(currentChar>0 && string.charAt(currentChar-1) == ' ' && 
-            currentChar >= 'a' && currentChar <= 'z'){
-
-                isSolution += (char)(currentChar -32);
-
-        } else if (currentChar != ' '){
-             isSolution+= currentChar;
-        }
-
-        }
-
-                
+            String isSolution = "";
+            boolean isFirst = false;
+    
+            for (int i = 0; i < string.length(); i++) {
+                char currentChar = string.charAt(i);
+    
+                // space case (ignore)
+                // if (currentChar == ' ') {
+                // continue;
+                // }
+    
+                if (i > 0) {
+                    // first char at word that isn't the first word (need to be upper case)
+                    if (currentChar > ' ' && string.charAt(i - 1) == ' ' && isFirst) {
+                        if (currentChar >= 'a' && currentChar <= 'z') {
+                            isSolution += (char) (currentChar - 32);
+                        } else {
+                            isSolution += currentChar;
+                        }
+                        // continue;
+                    }
+    
+                    if (currentChar > ' ' && string.charAt(i - 1) > ' ' && i > 0) {
+                        // any other char (need to be lower case)
+                        if (currentChar >= 'A' && currentChar <= 'Z') {
+                            isSolution += (char) (currentChar + 32);
+                        } else {
+                            isSolution += currentChar;
+                        }
+                    }
+                }
+    
+                // first letter in the string
+                if (currentChar > ' ' && !isFirst) {
+                    isFirst = true;
+                    if (currentChar >= 'A' && currentChar <= 'Z') {
+                        isSolution += (char) (currentChar + 32);
+                    } else {
+                        isSolution += currentChar;
+                    }
+                    // continue;
+                }
             }
-
-        return isSolution;
-    }
+    
+            return isSolution;
+        }
 
     public static int[] allIndexOf (String string, char chr) {
         int count = 0;
@@ -129,4 +128,3 @@ public class StringOps {
 
 
     }
-
